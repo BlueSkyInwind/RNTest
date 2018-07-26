@@ -1,0 +1,3 @@
+constructor	/Users/admin/Desktop/RN/RNTest/RNTest/blinkText.js	/^  constructor(props) {$/;"	function	line:6
+state.showText	/Users/admin/Desktop/RN/RNTest/RNTest/blinkText.js	/^    this.state = { showText: true };$/;"	property	line:8
+render	/Users/admin/Desktop/RN/RNTest/RNTest/blinkText.js	/^  render() {$/;"	function	line:19
