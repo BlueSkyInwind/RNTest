@@ -7,9 +7,10 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Image,Button,NavigatorIOS,Dimensions} from 'react-native';
+import {Platform, StyleSheet, Text, View, Image,Button,NavigatorIOS,TouchableHighlight} from 'react-native';
 import BlinkText from './blinkText.js';
 import myVC from './My.js';
+import testVC from './TestLayout.js';
 
 export default class Main extends Component {
 
@@ -46,27 +47,37 @@ class MainView extends Component {
         console.log('react-native 真的不习惯');
     }
     componentWillMount(){
-        
-    }
 
+    }
 
   _onForward(){
       const nav = this.props.navigator
       nav.push({
-        title:'我的',
+        title:'布局测试',
         component:myVC,
     })
   }
 
+  _imageTap(){
+      const nav = this.props.navigator
+      nav.push({
+          title:'我的',
+          component:testVC,
+      })
+  }
+
+
   render() {
     return (
       <View style={styles.container}>
-        <Image source={require('./source/123.jpeg')} style={styles.backImage} />
-        <BlinkText text='react-native 真的不习惯' style={styles.blink} />
-        <Button title="Tap me" onPress={this._onForward.bind(this)} style={styles.pushbutton}/>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+          <TouchableHighlight onPress={this._imageTap.bind(this)}>
+              <Image source={require('./source/123.jpeg')} style={styles.backImage} />
+          </TouchableHighlight>
+          <BlinkText text='react-native 真的不习惯' style={styles.blink} />
+          <Button title="Tap me" onPress={this._onForward.bind(this)} style={styles.pushbutton}/>
+          <Text style={styles.welcome}>Welcome to React Native!</Text>
+          <Text style={styles.instructions}>To get started, edit App.js</Text>
+          <Text style={styles.instructions}>{instructions}</Text>
       </View>
     );
   }
@@ -75,7 +86,7 @@ class MainView extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection:'row-reverse',
+    flexDirection:'column',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCF4',
